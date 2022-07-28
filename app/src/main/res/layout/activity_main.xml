@@ -56,32 +56,38 @@
       android:id="@+id/spaceStationLabel"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
       android:text="@string/space_stations"
+      app:layout_constraintEnd_toEndOf="@+id/spaceStationIcon"
+      app:layout_constraintStart_toStartOf="@+id/spaceStationIcon"
+      app:layout_constraintTop_toBottomOf="@+id/spaceStationIcon"
       tools:layout_conversion_absoluteHeight="19dp"
-      tools:layout_conversion_absoluteWidth="94dp"
-      tools:layout_editor_absoluteX="19dp"
-      tools:layout_editor_absoluteY="101dp" />
+      tools:layout_conversion_absoluteWidth="94dp" />
 
 
   <TextView
       android:id="@+id/flightsLabel"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
       android:text="@string/flights"
+      app:layout_constraintEnd_toEndOf="@+id/flightsIcon"
+      app:layout_constraintStart_toStartOf="@+id/flightsIcon"
+      app:layout_constraintTop_toBottomOf="@+id/flightsIcon"
       tools:layout_conversion_absoluteHeight="19dp"
-      tools:layout_conversion_absoluteWidth="42dp"
-      tools:layout_editor_absoluteX="190dp"
-      tools:layout_editor_absoluteY="120dp" />
+      tools:layout_conversion_absoluteWidth="42dp" />
 
   <TextView
       android:id="@+id/roverLabel"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
       android:text="@string/rovers"
+      app:layout_constraintEnd_toEndOf="@+id/roverIcon"
+      app:layout_constraintStart_toStartOf="@+id/roverIcon"
+      app:layout_constraintTop_toBottomOf="@+id/roverIcon"
       tools:layout_conversion_absoluteHeight="19dp"
-      tools:layout_conversion_absoluteWidth="43dp"
-      tools:layout_editor_absoluteX="328dp"
-      tools:layout_editor_absoluteY="111dp" />
+      tools:layout_conversion_absoluteWidth="43dp" />
 
   <TextView
       android:id="@+id/textView1"
