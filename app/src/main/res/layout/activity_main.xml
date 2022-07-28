@@ -12,8 +12,8 @@
 
   <ImageView
       android:id="@+id/spaceStationIcon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
       android:src="@drawable/space_station_icon"
       tools:layout_conversion_absoluteHeight="30dp"
       tools:layout_conversion_absoluteWidth="30dp"
@@ -32,8 +32,8 @@
 
   <ImageView
       android:id="@+id/flightsIcon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
       android:src="@drawable/rocket_icon"
       tools:layout_conversion_absoluteHeight="30dp"
       tools:layout_editor_absoluteY="8dp"
@@ -53,8 +53,8 @@
 
   <ImageView
       android:id="@+id/roverIcon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
       android:src="@drawable/rover_icon"
       tools:layout_conversion_absoluteHeight="30dp"
       tools:layout_conversion_absoluteWidth="30dp"
