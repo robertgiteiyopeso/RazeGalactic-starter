@@ -70,11 +70,12 @@ class MainActivity : AppCompatActivity() {
       val anim = ValueAnimator.ofFloat(startAngle, endAngle)
       anim.addUpdateListener { valueAnimator ->
         val animatedValue = valueAnimator.animatedValue as Float
-        val layoutParams = rocketIcon.layoutParams as ConstraintLayout.LayoutParams
+        //val layoutParams = rocketIcon.layoutParams as ConstraintLayout.LayoutParams
         layoutParams.circleAngle = animatedValue
         rocketIcon.layoutParams = layoutParams
 
-        rocketIcon.rotation = (animatedValue % 360 -270)
+        rocketIcon.rotation = (animatedValue % 360 - 270)
+        println(animatedValue)
       }
       anim.duration = if(switch1.isChecked) 2000 else 1000
 
