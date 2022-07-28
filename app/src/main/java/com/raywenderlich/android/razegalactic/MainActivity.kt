@@ -33,6 +33,7 @@ package com.raywenderlich.android.razegalactic
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
 import android.support.v7.app.AppCompatActivity
+import android.transition.AutoTransition
 import android.transition.TransitionManager
 import kotlinx.android.synthetic.main.keyframe1.*
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
   private val constraintSet1 = ConstraintSet()
   private val constraintSet2 = ConstraintSet()
 
-  private var isOffScreen = true
+  private var isOffScreen = false
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -63,5 +64,17 @@ class MainActivity : AppCompatActivity() {
       isOffScreen = !isOffScreen
       constraint.applyTo(constraintLayout)
     }
+  }
+
+  override fun onEnterAnimationComplete() {
+    super.onEnterAnimationComplete()
+
+    constraintSet2.clone(this, R.layout.activity_main)
+
+    val transition = AutoTransition()
+    transition.duration = 1000
+    TransitionManager.beginDelayedTransition(constraintLayout, transition)
+
+    constraintSet2.applyTo(constraintLayout)
   }
 }
