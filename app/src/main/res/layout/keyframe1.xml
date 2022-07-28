@@ -177,8 +177,8 @@
 
   <ImageView
       android:id="@+id/galaxyIcon"
-      android:layout_width="90dp"
-      android:layout_height="90dp"
+      android:layout_width="10dp"
+      android:layout_height="10dp"
       android:src="@drawable/galaxy"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
