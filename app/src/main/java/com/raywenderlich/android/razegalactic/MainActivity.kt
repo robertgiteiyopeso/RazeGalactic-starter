@@ -31,20 +31,37 @@
 package com.raywenderlich.android.razegalactic
 
 import android.os.Bundle
+import android.support.constraint.ConstraintSet
 import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import android.transition.TransitionManager
+import kotlinx.android.synthetic.main.keyframe1.*
 
 /**
  * Main Screen
  */
 class MainActivity : AppCompatActivity() {
 
+  private val constraintSet1 = ConstraintSet()
+  private val constraintSet2 = ConstraintSet()
+
+  private var isOffScreen = true
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    setContentView(R.layout.keyframe1)
 
     switch1.setOnCheckedChangeListener { _, isChecked ->
       switch1.setText(if (isChecked) R.string.round_trip else R.string.one_way)
+    }
+
+    constraintSet1.clone(constraintLayout)
+    constraintSet2.clone(this, R.layout.activity_main)
+
+    departButton.setOnClickListener {
+      TransitionManager.beginDelayedTransition(constraintLayout)
+      val constraint = if(!isOffScreen) constraintSet1 else constraintSet2
+      isOffScreen = !isOffScreen
+      constraint.applyTo(constraintLayout)
     }
   }
 }
