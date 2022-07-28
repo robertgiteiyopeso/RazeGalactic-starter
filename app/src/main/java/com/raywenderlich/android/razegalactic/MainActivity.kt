@@ -30,11 +30,15 @@
 
 package com.raywenderlich.android.razegalactic
 
+import android.animation.ValueAnimator
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.v7.app.AppCompatActivity
 import android.transition.AutoTransition
 import android.transition.TransitionManager
+import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.LinearInterpolator
 import kotlinx.android.synthetic.main.keyframe1.*
 
 /**
@@ -59,10 +63,23 @@ class MainActivity : AppCompatActivity() {
     constraintSet2.clone(this, R.layout.activity_main)
 
     departButton.setOnClickListener {
-      TransitionManager.beginDelayedTransition(constraintLayout)
-      val constraint = if(!isOffScreen) constraintSet1 else constraintSet2
-      isOffScreen = !isOffScreen
-      constraint.applyTo(constraintLayout)
+      val layoutParams = rocketIcon.layoutParams as ConstraintLayout.LayoutParams
+      val startAngle = layoutParams.circleAngle
+      val endAngle = startAngle + (if(switch1.isChecked) 360 else 180)
+
+      val anim = ValueAnimator.ofFloat(startAngle, endAngle)
+      anim.addUpdateListener { valueAnimator ->
+        val animatedValue = valueAnimator.animatedValue as Float
+        val layoutParams = rocketIcon.layoutParams as ConstraintLayout.LayoutParams
+        layoutParams.circleAngle = animatedValue
+        rocketIcon.layoutParams = layoutParams
+
+        rocketIcon.rotation = (animatedValue % 360 -270)
+      }
+      anim.duration = if(switch1.isChecked) 2000 else 1000
+
+      anim.interpolator = AnticipateOvershootInterpolator()
+      anim.start()
     }
   }
 
